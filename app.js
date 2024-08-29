@@ -5,7 +5,7 @@ const express = require("express");  // Import Express FrameWork
 
 const mongoose = require("mongoose"); // Import Mongoose for MongoDB interactions
 
-const cors = require("cors");
+const cors = require("cors")
 
 const app = express(); // spinning up the express framework server
 
@@ -13,6 +13,7 @@ const app = express(); // spinning up the express framework server
 const port = 3000; // Define the port number for the server. 
 
 app.use(cors());
+ // use the custom 404 middleware for handling error
 
 const taskRouter = require("./routes/taskRouter");   // Import the taskRouter for task related routes
 const notFound = require("./middlewares/notFound");
@@ -47,5 +48,6 @@ start();
 // MongoDB is a NoSQL Database that stores data in a flexible,  JSON like format. 
 
 //ericljohn1
-//Vx9HbcJNFHrFMoHv
-// mongodb+srv://ericljohn1:Vx9HbcJNFHrFMoHv@cluster0.irqek.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+//IZI78wkBBmicB6eD
+// mongodb+srv://ericljohn1:IZI78wkBBmicB6eD@cluster0.w4ju7.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+// https://task-manager-backend-cwx0.onrender.com

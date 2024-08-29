@@ -31,20 +31,20 @@ const createTask = async (req, res) => {
     }
 
     const task = await Task.create(req.body);  // Create a new task with the request data
-    response.status(201).json({ message: "Task created successfully", task });   // Send a status code with a message of success 
+    res.status(201).json({ message: "Task created successfully", task });   // Send a status code with a message of success 
 };
 
 // ======== FUNCTION FOR EDITING AN EXISTING TASK ========
 
 const editTask = async (req, res) => {
-    const {id} = req.params;   //Get the task ID from the request parameters
+    const { id } = req.params;   //Get the task ID from the request parameters
 
     if (!validateID(id)) {
-        return res.status(400).json({message: `ID: ${id} is not valid`})
+        return res.status(400).json({ message: `ID: ${id} is not valid` })
     }
 
-    const task = await Task.findOneAndUpdate({_id: id}, {...req.body});  // Update the task with the provided data.
-    res.status(200).json({ message: "Task updated successfully", task });  // Send a status code with a message of successfully updated. 
+    const task = await Task.findOneAndUpdate({ _id: id }, { ...req.body });  // Update the task with the provided data.
+    res.status(200).json({ message: "Task updated successfully" });  // Send a status code with a message of successfully updated. 
 };
 
 // ====== Function to Delete an existing task =========
@@ -58,7 +58,7 @@ const deleteTask = async (req, res) => {
 };
 
 //======= ===Function to get each Task ======
-const eachTask = async (req, res) => {
+const findEachTask = async (req, res) => {
     const { id } = req.params;  // Get the task ID from the request parameters
     if (!validateID(id)) {
         return res.status(400).json({message: `ID: ${id} is not valid`})
@@ -68,4 +68,4 @@ const eachTask = async (req, res) => {
 }
 
 
-module.exports = { getAllTask, createTask, editTask, deleteTask, eachTask };   //Export the controller function to be used in the router.
+module.exports = { getAllTask, createTask, editTask, deleteTask, findEachTask };   //Export the controller function to be used in the router.

@@ -1,5 +1,5 @@
 const express = require("express");    // Import Express Framework
-const { getAllTask, createTask, editTask, deleteTask, eachTask } = require("../controller/taskController"); 
+const { getAllTask, createTask, editTask, deleteTask, findEachTask } = require("../controller/taskController"); 
 
 const router = express.Router();      // Create a new router instance 
 
@@ -10,6 +10,6 @@ router.patch("/:id", editTask)  // route to edit a task handled by editTask func
 
 router.delete("/:id", deleteTask)  //  {Route to delete a }   route to delete a task handled by deleteTask function .
 
-router.get("/:id", eachTask) // Route to get a task handled by the each task function .
+router.get("/:id", findEachTask) // Route to get a task handled by the each task function .
 
 module.exports = router;    // Export the router to be used in the main server file app.js
